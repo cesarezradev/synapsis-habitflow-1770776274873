@@ -1,0 +1,17 @@
+{
+  "name": "HabitFlow",
+  "short_name": "HabitFlow",
+  "description": "Track your daily habits beautifully",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0a1e",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
