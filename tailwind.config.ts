@@ -10,29 +10,36 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
+          50: '#f0f7ff',
+          100: '#e0effe',
+          200: '#b9dffc',
+          300: '#7cc5fa',
+          400: '#36a8f5',
+          500: '#0c8de6',
+          600: '#0070c4',
+          700: '#01599f',
+          800: '#064b83',
+          900: '#0b3f6d',
         },
+        surface: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+        }
       },
       animation: {
-        'check': 'check 0.4s ease-in-out',
+        'check': 'check 0.4s ease-out forwards',
         'slide-up': 'slideUp 0.3s ease-out',
-        'fade-in': 'fadeIn 0.3s ease-out',
-        'bounce-in': 'bounceIn 0.5s ease-out',
+        'fade-in': 'fadeIn 0.2s ease-out',
       },
       keyframes: {
         check: {
-          '0%': { transform: 'scale(0.8)', opacity: '0' },
+          '0%': { transform: 'scale(0)' },
           '50%': { transform: 'scale(1.2)' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(1)' },
         },
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
@@ -41,12 +48,6 @@ const config: Config = {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
-        },
-        bounceIn: {
-          '0%': { transform: 'scale(0.3)', opacity: '0' },
-          '50%': { transform: 'scale(1.05)' },
-          '70%': { transform: 'scale(0.9)' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
     },

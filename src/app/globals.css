@@ -3,67 +3,57 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #0f0a1e;
-  --color-surface: #1a1230;
-  --color-surface-2: #241c3d;
-  --color-text: #f0edf6;
-  --color-text-secondary: #9f95b3;
-  --color-brand: #8b5cf6;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-html, body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  min-height: 100vh;
-  min-height: 100dvh;
-  overscroll-behavior: none;
+html {
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
-@layer utilities {
-  .glass {
-    background: rgba(26, 18, 48, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-  }
-  .glass-strong {
-    background: rgba(36, 28, 61, 0.95);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-  }
+body {
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+  min-height: 100dvh;
 }
-
-/* PWA safe areas */
-.safe-top { padding-top: env(safe-area-inset-top, 0px); }
-.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.3); border-radius: 2px; }
-
-/* Streak animation */
-@keyframes streak {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
-.streak-glow {
-  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.4), transparent);
+
+/* Smooth transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.glass {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.glass-light {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
   background-size: 200% 100%;
-  animation: streak 2s ease-in-out infinite;
-}
-
-/* Checkbox animation */
-.habit-check {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.habit-check.checked {
-  transform: scale(1);
-}
-.habit-check.unchecked {
-  transform: scale(0.95);
+  animation: shimmer 2s infinite;
 }
